@@ -23,7 +23,7 @@ const AllFilms = ({ movies }) => {
                         key={i}
                         image={movie.image.url}
                         title={movie.title}
-                        genre={movie.genres}
+                        genres={movie.genres}
                         date={movie.date}
                         rating={movie.rate.aggregaterate}
                     />
