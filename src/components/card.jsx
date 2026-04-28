@@ -1,11 +1,11 @@
 const Card = ({ image, title, genres = [], date, rating, full = false }) => {
     return (
-        <div className="overflow-hidden  rounded-lg border border-secondary cursor-pointer  hover:-translate-y-1 duration-300 relative    ">
+        <div className="overflow-hidden group  rounded-lg border border-secondary cursor-pointer  hover:-translate-y-1 duration-300 relative    ">
             <figure>
                 <img
                     src={image}
                     alt="card image"
-                    className="aspect-video w-full"
+                    className="aspect-square group-hover:scale-105 transition-all duration-300 w-full"
                 />
             </figure>
             <div className="p-6">

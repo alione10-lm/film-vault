@@ -1,7 +1,23 @@
-const Button = ({ children, onClick, className, type = "button" }) => {
+const Button = ({
+    children,
+    onClick,
+    className = "",
+    type = "button",
+    variant,
+}) => {
+    const base =
+        "text-sm cursor-pointer flex items-center justify-center gap-1 p-3 rounded-lg transition duration-300 font-semibold";
+
+    const variants = {
+        default: "bg-primary text-primary-foreground hover:bg-primary/80",
+        ghost: "bg-transparent text-primary border border-primary   hover:bg-primary/10",
+    };
+
+    const selected = variants[variant] ?? variants.default;
+
     return (
         <button
-            className={`bg-primary text-sm hover:bg-primary/80 cursor-pointer flex items-center justify-center gap-1 p-3 rounded-lg text-primary-foreground transition duration-300 font-semibold  ${className}`}
+            className={`${base} ${selected} ${className}`}
             onClick={onClick}
             type={type}
         >
