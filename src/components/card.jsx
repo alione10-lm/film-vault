@@ -1,6 +1,4 @@
-import React from "react";
-
-const Card = ({ image, title, genre, date, rating, full = false }) => {
+const Card = ({ image, title, genres = [], date, rating, full = false }) => {
     return (
         <div className="overflow-hidden  rounded-lg border border-secondary cursor-pointer  hover:-translate-y-1 duration-300 relative    ">
             <figure>
@@ -13,7 +11,7 @@ const Card = ({ image, title, genre, date, rating, full = false }) => {
             <div className="p-6">
                 <header>
                     <p className="text-card-foreground/70 text-xs mb-1">
-                        {genre.join(" - ")}
+                        {genres.join(" - ")}
                     </p>
                     <h3 className="text-xl text-card-foreground/90 font-medium ">
                         {title}

@@ -1,15 +1,14 @@
 import React from "react";
 
-const Hero = () => {
+const Hero = ({ movie }) => {
     return (
         <section className="relative h-screen w-full flex items-end justify-center p-20 overflow-hidden">
             <div
-                className="absolute inset-0 bg-cover bg-no-repeat
-    bg-[url('https://m.media-amazon.com/images/M/MV5BMDAyY2FhYjctNDc5OS00MDNlLThiMGUtY2UxYWVkNGY2ZjljXkEyXkFqcGc@._V1_.jpg')] 
-    scale-110 "
+                style={{ backgroundImage: `url('${movie.image.url}')` }}
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-110"
             ></div>
 
-            <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/50 to-transparent "></div>
+            <div className="absolute inset-0 bg-linear-to-r from-black/20 via-black/50 to-black/45 "></div>
 
             <div className="relative z-9 flex items-end gap-10">
                 <div>
@@ -35,7 +34,7 @@ const Hero = () => {
                 <img
                     width={250}
                     className="rounded-xl shadow-2xl"
-                    src="https://m.media-amazon.com/images/M/MV5BMDAyY2FhYjctNDc5OS00MDNlLThiMGUtY2UxYWVkNGY2ZjljXkEyXkFqcGc@._V1_.jpg"
+                    src={movie.image.url}
                     alt=""
                 />
             </div>

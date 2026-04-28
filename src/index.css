@@ -123,3 +123,9 @@ body {
     background-color: var(--background);
     width: 100%;
 }
+
+@layer components {
+    .input {
+        @apply w-full px-3 py-2 text-sm border border-secondary  rounded-lg focus:outline-none focus:border-primary/50 transition-colors;
+    }
+}

@@ -4,7 +4,7 @@ import Card from "../components/card";
 import Filter from "../components/filter";
 import { movies } from "../data/movies";
 
-const AllFilms = () => {
+const AllFilms = ({ movies }) => {
     return (
         <section className="h-screen w-fuall p-10 mt-10">
             <div className="flex w-full items-center gap-5">

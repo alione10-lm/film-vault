@@ -4,19 +4,23 @@ import Hero from "./sections/hero";
 import FullCatalog from "./sections/fullCatalog";
 import TopTreeMovies from "./sections/topTreeMovies";
 import Modal from "./components/modal";
-import { movies } from "./data/movies";
+
+import { movies as Data } from "./data/movies";
+import { getTopMovie } from "./utils/getTopMovie";
 const App = () => {
     const [showModal, setShowModal] = useState(false);
 
-    console.log(movies);
+    const [movies, setMovies] = useState(Data);
 
     return (
         <div className="App relative">
             <Navbar setShowModal={setShowModal} />
-            <Hero />
-            <TopTreeMovies />
-            <FullCatalog />
-            {showModal && <Modal setShowModal={setShowModal} />}
+            <Hero movie={getTopMovie(movies)[0]} />
+            <TopTreeMovies movies={movies} />
+            <FullCatalog movies={movies} />
+            {showModal && (
+                <Modal setMovies={setMovies} setShowModal={setShowModal} />
+            )}
         </div>
     );
 };
