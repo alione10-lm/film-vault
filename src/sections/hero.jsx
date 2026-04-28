@@ -1,6 +1,10 @@
+import { useState } from "react";
 import Button from "../components/button";
+import Drawer from "../components/drawer";
 
 const Hero = ({ movie }) => {
+    const [open, setOpen] = useState(false);
+
     return (
         <section className="relative h-screen w-full flex items-center justify-center p-20 overflow-hidden">
             <div
@@ -25,7 +29,18 @@ const Hero = ({ movie }) => {
                     </p>
                     <div className="flex gap-4 mt-4">
                         <Button>watch trailer</Button>
-                        <Button variant={"ghost"}>show details</Button>
+                        <Button onClick={() => setOpen(true)} variant={"ghost"}>
+                            show details
+                        </Button>
+
+                        <Drawer
+                            isOpen={open}
+                            onClose={() => setOpen(false)}
+                            side="right"
+                            title="Filters"
+                        >
+                            <p>Any content here (filters, forms...) 👌</p>
+                        </Drawer>
                     </div>
                 </div>
 
