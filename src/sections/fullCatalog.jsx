@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { PopcornIcon } from "lucide-react";
 import Card from "../components/card";
 import Filter from "../components/filter";
 import { movies } from "../data/movies";
+import Drawer from "../components/drawer";
+import MovieDetails from "../components/movieDetails";
 
 const AllFilms = ({ movies }) => {
+    const [open, setOpen] = useState(false);
+    const [selectedMovie, setSelectedMovie] = useState(null);
+
     return (
         <section className="h-screen w-fuall p-10 mt-10">
             <div className="flex w-full items-center gap-5">
@@ -20,6 +25,10 @@ const AllFilms = ({ movies }) => {
             <div className="w-full grid grid-cols-4 gap-3 ">
                 {movies.map((movie, i) => (
                     <Card
+                        selectMovie={() => {
+                            setSelectedMovie(movie);
+                            setOpen(true);
+                        }}
                         key={i}
                         image={movie.image.url}
                         title={movie.title}
@@ -29,6 +38,17 @@ const AllFilms = ({ movies }) => {
                     />
                 ))}
             </div>
+
+            {selectedMovie && (
+                <Drawer
+                    isOpen={open}
+                    onClose={() => setOpen(false)}
+                    side="right"
+                    title="details"
+                >
+                    <MovieDetails movie={selectedMovie} />
+                </Drawer>
+            )}
         </section>
     );
 };

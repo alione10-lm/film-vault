@@ -1,6 +1,17 @@
-const Card = ({ image, title, genres = [], date, rating, full = false }) => {
+const Card = ({
+    image,
+    title,
+    genres = [],
+    date,
+    rating,
+    full = false,
+    selectMovie,
+}) => {
     return (
-        <div className="overflow-hidden group  rounded-lg border border-secondary cursor-pointer  hover:-translate-y-1 duration-300 relative    ">
+        <div
+            onClick={selectMovie}
+            className="overflow-hidden group  rounded-lg border border-secondary cursor-pointer  hover:-translate-y-1 duration-300 relative    "
+        >
             <figure>
                 <img
                     src={image}
@@ -25,7 +36,7 @@ const Card = ({ image, title, genres = [], date, rating, full = false }) => {
                     </p>
                     <p className="text-xs ">
                         {rating} <span className="text-primary ">/5</span>
-                        ⭐⭐⭐⭐⭐
+                        <span className="text-amber-400">★</span>
                     </p>
                 </div>
             </div>

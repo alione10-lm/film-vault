@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Button from "../components/button";
 import Drawer from "../components/drawer";
+import MovieDetails from "../components/movieDetails";
 
 const Hero = ({ movie }) => {
     const [open, setOpen] = useState(false);
@@ -25,7 +26,7 @@ const Hero = ({ movie }) => {
                     </p>
 
                     <p className="text-secondary-foreground/70 text-sm max-w-xl">
-                        {movie.plot}
+                        {movie.description}
                     </p>
                     <div className="flex gap-4 mt-4">
                         <Button>watch trailer</Button>
@@ -37,9 +38,9 @@ const Hero = ({ movie }) => {
                             isOpen={open}
                             onClose={() => setOpen(false)}
                             side="right"
-                            title="Filters"
+                            title="details"
                         >
-                            <p>Any content here (filters, forms...) 👌</p>
+                            <MovieDetails movie={movie} />
                         </Drawer>
                     </div>
                 </div>

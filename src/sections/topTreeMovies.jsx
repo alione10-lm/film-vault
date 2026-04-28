@@ -2,12 +2,14 @@ import { Gem } from "lucide-react";
 import Card from "../components/card";
 import { movies } from "../data/movies";
 
+import Drawer from "../components/drawer";
+import { useState } from "react";
+import MovieDetails from "../components/movieDetails";
+
 const TopTreeMovies = () => {
-    console.log(
-        movies
-            .sort((a, b) => b.rate.aggregaterate - a.rate.aggregaterate)
-            .slice(0, 3),
-    );
+    const [open, setOpen] = useState(false);
+    const [selectedMovie, setSelectedMovie] = useState(null);
+
     return (
         <section className="h-screen w-full p-10 mt-10">
             <div className="flex w-full items-center gap-5">
@@ -25,6 +27,10 @@ const TopTreeMovies = () => {
                     .slice(0, 3)
                     .map((movie, i) => (
                         <Card
+                            selectMovie={() => {
+                                setSelectedMovie(movie);
+                                setOpen(true);
+                            }}
                             full={true}
                             key={i}
                             image={movie.image.url}
@@ -35,6 +41,17 @@ const TopTreeMovies = () => {
                         />
                     ))}
             </div>
+
+            {selectedMovie && (
+                <Drawer
+                    isOpen={open}
+                    onClose={() => setOpen(false)}
+                    side="right"
+                    title="details"
+                >
+                    <MovieDetails movie={selectedMovie} />
+                </Drawer>
+            )}
         </section>
     );
 };
