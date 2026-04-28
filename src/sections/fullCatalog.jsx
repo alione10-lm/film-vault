@@ -2,6 +2,7 @@ import React from "react";
 import { PopcornIcon } from "lucide-react";
 import Card from "../components/card";
 import Filter from "../components/filter";
+import { movies } from "../data/movies";
 
 const AllFilms = () => {
     return (
@@ -17,16 +18,14 @@ const AllFilms = () => {
 
             <Filter />
             <div className="w-full grid grid-cols-4 gap-3 ">
-                {Array.from({ length: 8 }).map((_, i) => (
+                {movies.slice(0, 8).map((movie, i) => (
                     <Card
                         key={i}
-                        image={
-                            "https://m.media-amazon.com/images/M/MV5BMDAyY2FhYjctNDc5OS00MDNlLThiMGUtY2UxYWVkNGY2ZjljXkEyXkFqcGc@._V1_.jpg"
-                        }
-                        title={"Memories of the past"}
-                        genre={["Action", "Comedy"]}
-                        date={"jun 3 2023"}
-                        rating={4.5}
+                        image={movie.image.url}
+                        title={movie.title}
+                        genre={movie.genres}
+                        date={movie.date}
+                        rating={movie.rate.aggregaterate}
                     />
                 ))}
             </div>

@@ -1,22 +1,11 @@
-import React from "react";
+import { getUniqueGenres } from "../data/genres";
 
 const Filter = () => {
-    const Categories = [
-        "Action",
-        "Comedy",
-        "Drama",
-        "Horror",
-        "Sci-Fi",
-        "Romance",
-        "Thriller",
-        "Fantasy",
-        "Animation",
-        "Documentary",
-    ];
+    const Categories = getUniqueGenres();
 
     return (
         <div className=" mt-10 mb-4">
-            <div className="flex items-center w-full gap-2">
+            <div className="flex items-center w-full  flex-wrap gap-2">
                 filter :
                 {Categories.map((category) => (
                     <button
