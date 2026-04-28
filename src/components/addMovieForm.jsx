@@ -201,6 +201,26 @@ const AddMovieForm = () => {
                     Évaluation
                 </p>
 
+                <div className="col-span-2 flex flex-col gap-1.5">
+                    <label className="text-xs font-medium text-foreground">
+                        Note
+                    </label>
+                    <div className="flex gap-1">
+                        {[1, 2, 3, 4, 5].map((star) => (
+                            <button
+                                type="button"
+                                key={star}
+                                onClick={() => setNote(star)}
+                                onMouseEnter={() => setHovered(star)}
+                                onMouseLeave={() => setHovered(0)}
+                                className={`text-2xl cursor-pointer transition-colors ${star <= (hovered || note) ? "text-amber-400" : "text-gray-200"}`}
+                            >
+                                ★
+                            </button>
+                        ))}
+                    </div>
+                </div>
+
                 <div className="col-span-2 mt-2">
                     <Button
                         type="submit"
