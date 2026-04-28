@@ -1,8 +1,6 @@
 import Button from "../components/button";
 
 const Hero = ({ movie }) => {
-    console.log(movie.genres);
-
     return (
         <section className="relative h-screen w-full flex items-center justify-center p-20 overflow-hidden">
             <div

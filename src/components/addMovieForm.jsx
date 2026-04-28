@@ -1,16 +1,19 @@
 import { useState } from "react";
 import Button from "./button";
+import { getUniqueGenres } from "../data/genres";
 
-const AddMovieForm = () => {
+const AddMovieForm = ({ setMovies, setShowModal, ref }) => {
+    const generes = getUniqueGenres();
+
     const [acteurs, setActeurs] = useState([""]);
-    const [note, setNote] = useState(0);
+    const [rate, setRate] = useState(0);
     const [hovered, setHovered] = useState(0);
     const [form, setForm] = useState({
-        titre: "",
+        title: "",
         description: "",
-        annee: "",
-        genre: "",
-        realisateur: "",
+        date: "",
+        genres: [],
+        director: "",
         imageUrl: "",
         trailerUrl: "",
     });
@@ -18,25 +21,44 @@ const AddMovieForm = () => {
     const handleChange = (e) =>
         setForm({ ...form, [e.target.name]: e.target.value });
 
+    const toggleGenre = (genre) =>
+        setForm((prev) => ({
+            ...prev,
+            genres: prev.genres.includes(genre)
+                ? prev.genres.filter((g) => g !== genre)
+                : [...prev.genres, genre],
+        }));
+
     const addActeur = () => setActeurs([...acteurs, ""]);
     const removeActeur = (i) =>
         acteurs.length > 1 && setActeurs(acteurs.filter((_, idx) => idx !== i));
     const updateActeur = (i, val) =>
         setActeurs(acteurs.map((a, idx) => (idx === i ? val : a)));
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
         const data = {
             ...form,
-            annee: parseInt(form.annee),
-            acteurs: acteurs.filter(Boolean),
-            note,
+            date: parseInt(form.date),
+            actors: acteurs.filter(Boolean),
+            rate: {
+                aggregaterate: rate,
+            },
+            image: {
+                url: form.imageUrl,
+            },
         };
         console.log(data);
+        setMovies((prev) => [...prev, data]);
+        setShowModal(false);
     };
 
     return (
-        <div className="max-w-2xl mx-auto p-6">
-            <form className="grid grid-cols-2 border border-secondary gap-4 bg-background px-6 py-4 rounded-lg ">
+        <div className="max-w-2xl mx-auto p-6" ref={ref}>
+            <form
+                className="grid grid-cols-2 border border-secondary gap-4 bg-background px-6 py-4 rounded-lg"
+                onSubmit={handleSubmit}
+            >
                 <p className="col-span-2 text-xs font-medium uppercase tracking-widest text-gray-400 border-b border-gray-200 pb-2">
                     Informations générales
                 </p>
@@ -46,11 +68,11 @@ const AddMovieForm = () => {
                         Titre
                     </label>
                     <input
-                        name="titre"
-                        value={form.titre}
+                        name="title"
+                        value={form.title}
                         onChange={handleChange}
                         placeholder="Ex: Inception"
-                        className="input "
+                        className="input"
                     />
                 </div>
 
@@ -64,56 +86,50 @@ const AddMovieForm = () => {
                         onChange={handleChange}
                         placeholder="Synopsis du film..."
                         rows={3}
-                        className="input  resize-none"
+                        className="input resize-none"
                     />
                 </div>
 
-                <div className="flex flex-col gap-1.5">
+                <div className="flex col-span-2 flex-col w-full gap-1.5">
                     <label className="text-xs font-medium text-foreground">
                         Année de sortie
                     </label>
                     <input
-                        name="annee"
+                        name="date"
                         type="number"
-                        value={form.annee}
+                        value={form.date}
                         onChange={handleChange}
                         placeholder="2024"
                         min="1888"
                         max="2099"
-                        className="input "
+                        className="input w-full"
                     />
                 </div>
 
-                <div className="flex flex-col gap-1.5">
+                <div className="col-span-2 flex flex-col gap-1.5">
                     <label className="text-xs font-medium text-foreground">
                         Genre
                     </label>
-                    <select
-                        name="genre"
-                        value={form.genre}
-                        onChange={handleChange}
-                        className="input bg-background"
-                    >
-                        <option value="" disabled>
-                            Choisir un genre
-                        </option>
-                        {[
-                            "Action",
-                            "Aventure",
-                            "Animation",
-                            "Comédie",
-                            "Drame",
-                            "Fantastique",
-                            "Horreur",
-                            "Romance",
-                            "Science-fiction",
-                            "Thriller",
-                            "Documentaire",
-                            "Autre",
-                        ].map((g) => (
-                            <option key={g}>{g}</option>
-                        ))}
-                    </select>
+                    <div className="flex flex-wrap gap-2">
+                        {generes.map((genre) => {
+                            const isSelected = form.genres.includes(genre);
+                            return (
+                                <button
+                                    key={genre}
+                                    type="button"
+                                    onClick={() => toggleGenre(genre)}
+                                    className={`px-3 py-1 text-xs font-medium rounded-full border transition-colors cursor-pointer
+                    ${
+                        isSelected
+                            ? "bg-primary text-primary-foreground border-primary"
+                            : "bg-transparent text-foreground border-secondary hover:border-primary/50"
+                    }`}
+                                >
+                                    {genre}
+                                </button>
+                            );
+                        })}
+                    </div>
                 </div>
 
                 <div className="col-span-2 flex flex-col gap-1.5">
@@ -121,11 +137,11 @@ const AddMovieForm = () => {
                         Réalisateur
                     </label>
                     <input
-                        name="realisateur"
-                        value={form.realisateur}
+                        name="director"
+                        value={form.director}
                         onChange={handleChange}
                         placeholder="Ex: Christopher Nolan"
-                        className="input "
+                        className="input"
                     />
                 </div>
 
@@ -145,7 +161,7 @@ const AddMovieForm = () => {
                                     updateActeur(i, e.target.value)
                                 }
                                 placeholder="Nom de l'acteur"
-                                className="input "
+                                className="input"
                             />
                             <button
                                 type="button"
@@ -179,7 +195,7 @@ const AddMovieForm = () => {
                         value={form.imageUrl}
                         onChange={handleChange}
                         placeholder="https://..."
-                        className="input "
+                        className="input"
                     />
                 </div>
 
@@ -193,7 +209,7 @@ const AddMovieForm = () => {
                         value={form.trailerUrl}
                         onChange={handleChange}
                         placeholder="https://youtube.com/..."
-                        className="input "
+                        className="input"
                     />
                 </div>
 
@@ -210,10 +226,14 @@ const AddMovieForm = () => {
                             <button
                                 type="button"
                                 key={star}
-                                onClick={() => setNote(star)}
+                                onClick={() => setRate(star)}
                                 onMouseEnter={() => setHovered(star)}
                                 onMouseLeave={() => setHovered(0)}
-                                className={`text-2xl cursor-pointer transition-colors ${star <= (hovered || note) ? "text-amber-400" : "text-gray-200"}`}
+                                className={`text-2xl cursor-pointer transition-colors ${
+                                    star <= (hovered || rate)
+                                        ? "text-amber-400"
+                                        : "text-gray-200"
+                                }`}
                             >
                                 ★
                             </button>
@@ -224,7 +244,6 @@ const AddMovieForm = () => {
                 <div className="col-span-2 mt-2">
                     <Button
                         type="submit"
-                        onClick={handleSubmit}
                         className="w-full py-2.5 rounded-lg transition-colors active:scale-99"
                     >
                         Ajouter le film

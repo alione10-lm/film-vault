@@ -18,7 +18,7 @@ const AllFilms = ({ movies }) => {
 
             <Filter />
             <div className="w-full grid grid-cols-4 gap-3 ">
-                {movies.slice(0, 8).map((movie, i) => (
+                {movies.map((movie, i) => (
                     <Card
                         key={i}
                         image={movie.image.url}
