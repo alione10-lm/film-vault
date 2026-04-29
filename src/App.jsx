@@ -15,9 +15,13 @@ const App = () => {
     return (
         <div className="App relative">
             <Navbar setShowModal={setShowModal} />
-            <Hero movie={getTopMovie(movies)[0]} />
-            <TopTreeMovies movies={movies} />
-            <FullCatalog movies={movies} />
+            <Hero setMovies={setMovies} movie={getTopMovie(movies)[0]} />
+            <TopTreeMovies
+                movies={movies}
+                setMovies={setMovies}
+                movies={movies}
+            />
+            <FullCatalog movies={movies} setMovies={setMovies} />
             {showModal && (
                 <Modal setMovies={setMovies} setShowModal={setShowModal} />
             )}

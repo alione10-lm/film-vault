@@ -24,7 +24,7 @@ export const movies = [
         },
         date: 2026,
         genres: ["Action", "Thriller"],
-        rate: { aggregaterate: 5, voteCount: 23682 },
+        rate: { aggregaterate: 2, voteCount: 23682 },
         description:
             "A skilled climber seeks solitude in the wilderness but finds herself hunted by a dangerous predator, turning her retreat into a fight for survival.",
         director: "Edward Drake",

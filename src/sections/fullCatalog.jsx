@@ -5,7 +5,7 @@ import Filter from "../components/filter";
 import Drawer from "../components/drawer";
 import MovieDetails from "../components/movieDetails";
 
-const AllFilms = ({ movies }) => {
+const AllFilms = ({ movies, setMovies, setShowModal }) => {
     const [open, setOpen] = useState(false);
     const [selectedMovie, setSelectedMovie] = useState(null);
 
@@ -44,7 +44,11 @@ const AllFilms = ({ movies }) => {
                     side="right"
                     title="details"
                 >
-                    <MovieDetails movie={selectedMovie} />
+                    <MovieDetails
+                        setOpen={setOpen}
+                        movie={selectedMovie}
+                        setMovies={setMovies}
+                    />
                 </Drawer>
             )}
         </section>

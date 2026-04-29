@@ -1,12 +1,11 @@
 import { Gem } from "lucide-react";
 import Card from "../components/card";
-import { movies } from "../data/movies";
 
 import Drawer from "../components/drawer";
 import { useState } from "react";
 import MovieDetails from "../components/movieDetails";
 
-const TopTreeMovies = () => {
+const TopTreeMovies = ({ movies, setMovies, setShowModal }) => {
     const [open, setOpen] = useState(false);
     const [selectedMovie, setSelectedMovie] = useState(null);
 
@@ -49,7 +48,11 @@ const TopTreeMovies = () => {
                     side="right"
                     title="details"
                 >
-                    <MovieDetails movie={selectedMovie} />
+                    <MovieDetails
+                        movie={selectedMovie}
+                        setMovies={setMovies}
+                        setOpen={setOpen}
+                    />
                 </Drawer>
             )}
         </section>

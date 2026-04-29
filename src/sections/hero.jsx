@@ -3,11 +3,11 @@ import Button from "../components/button";
 import Drawer from "../components/drawer";
 import MovieDetails from "../components/movieDetails";
 
-const Hero = ({ movie }) => {
+const Hero = ({ movie, setMovies }) => {
     const [open, setOpen] = useState(false);
 
     return (
-        <section className="relative h-screen w-full flex items-center justify-center p-20 overflow-hidden">
+        <section className="relative rounded-4xl mt-22 h-screen w-full flex items-center justify-center p-20 overflow-hidden">
             <div
                 style={{ backgroundImage: `url('${movie.image.url}')` }}
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-110"
@@ -40,7 +40,11 @@ const Hero = ({ movie }) => {
                             side="right"
                             title="details"
                         >
-                            <MovieDetails movie={movie} />
+                            <MovieDetails
+                                movie={movie}
+                                setOpen={setOpen}
+                                setMovies={setMovies}
+                            />
                         </Drawer>
                     </div>
                 </div>

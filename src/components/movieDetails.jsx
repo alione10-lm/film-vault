@@ -2,7 +2,19 @@ import { VideoIcon } from "lucide-react";
 import Button from "./button";
 import Tag from "./tag";
 
-export default function MovieDetails({ movie }) {
+export default function MovieDetails({ movie, setMovies, setOpen }) {
+    function handleDelete(id) {
+        const confirmDelete = window.confirm(
+            "Are you sure you want to delete this movie?",
+        );
+
+        if (!confirmDelete) return;
+
+        setMovies((prev) => prev.filter((movie) => movie.id !== id));
+
+        setOpen(false);
+    }
+
     return (
         <div className="space-y-4">
             <img src={movie.image.url} className="w-full rounded-lg" />
@@ -53,6 +65,19 @@ export default function MovieDetails({ movie }) {
                 watch trailer
                 <VideoIcon size={14} />
             </Button>
+
+            <p>actions :</p>
+            <div className="flex gap-2 mt-4">
+                <Button className="flex-1">Edit</Button>
+
+                <Button
+                    onClick={() => handleDelete(movie.id)}
+                    variant="destructive"
+                    className="flex-1"
+                >
+                    Delete
+                </Button>
+            </div>
         </div>
     );
 }
