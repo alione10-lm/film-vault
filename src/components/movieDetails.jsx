@@ -1,5 +1,6 @@
 import { VideoIcon } from "lucide-react";
 import Button from "./button";
+import Tag from "./tag";
 
 export default function MovieDetails({ movie }) {
     return (
@@ -8,9 +9,14 @@ export default function MovieDetails({ movie }) {
 
             <h2 className="text-xl font-bold">{movie.title}</h2>
 
-            <p className="text-sm text-gray-500">
-                {movie.date} • {movie.genres.join(", ")}
-            </p>
+            <div className="text-sm flex gap-2 text-gray-500">
+                {movie.date} •{" "}
+                <div className="flex flex-wrap ">
+                    {movie.genres.map((genre, index) => (
+                        <Tag key={index}> {genre} </Tag>
+                    ))}
+                </div>
+            </div>
 
             <p className="text-sm">{movie.description}</p>
 
@@ -31,13 +37,7 @@ export default function MovieDetails({ movie }) {
                                 key={i}
                                 className="flex items-center gap-2 bg-secondary/40 px-2 py-1 rounded-full"
                             >
-                                <img
-                                    src={actor.image}
-                                    alt={actor.name}
-                                    className="w-6 h-6 rounded-full object-cover"
-                                />
-
-                                <span className="text-xs">{actor.name}</span>
+                                <span className="text-xs">{actor}</span>
                             </div>
                         ))}
                     </div>

@@ -1,3 +1,5 @@
+import Tag from "./tag";
+
 const Card = ({
     image,
     title,
@@ -19,11 +21,13 @@ const Card = ({
                     className="aspect-square group-hover:scale-105 transition-all duration-300 w-full"
                 />
             </figure>
-            <div className="p-6">
+            <div className="p-4">
                 <header>
-                    <p className="text-card-foreground/70 text-xs mb-1">
-                        {genres.join(" - ")}
-                    </p>
+                    <div className="w-full flex flex-wrap">
+                        {genres.map((genre, i) => (
+                            <Tag key={i}>{genre}</Tag>
+                        ))}
+                    </div>
                     <h3 className="text-xl text-card-foreground/90 font-medium ">
                         {title}
                     </h3>

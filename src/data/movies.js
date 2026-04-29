@@ -12,16 +12,7 @@ export const movies = [
         description:
             "A deep dive into the life of Michael Jackson, exploring his rise to global fame, personal struggles, and the legacy he left behind as the King of Pop.",
         director: "Antoine Fuqua",
-        actors: [
-            {
-                name: "Jaafar Jackson",
-                image: "https://i.pravatar.cc/150?img=1",
-            },
-            {
-                name: "Colman Domingo",
-                image: "https://i.pravatar.cc/150?img=2",
-            },
-        ],
+        actors: ["Jaafar Jackson", "Colman Domingo"],
     },
 
     {
@@ -37,13 +28,7 @@ export const movies = [
         description:
             "A skilled climber seeks solitude in the wilderness but finds herself hunted by a dangerous predator, turning her retreat into a fight for survival.",
         director: "Edward Drake",
-        actors: [
-            { name: "Bruce Willis", image: "https://i.pravatar.cc/150?img=3" },
-            {
-                name: "Neal McDonough",
-                image: "https://i.pravatar.cc/150?img=4",
-            },
-        ],
+        actors: ["Bruce Willis", "Neal McDonough"],
     },
 
     {
@@ -59,10 +44,7 @@ export const movies = [
         description:
             "In a world where superheroes abuse their powers, a group of vigilantes set out to expose the truth and take them down by any means necessary.",
         director: "Eric Kripke",
-        actors: [
-            { name: "Karl Urban", image: "https://i.pravatar.cc/150?img=5" },
-            { name: "Jack Quaid", image: "https://i.pravatar.cc/150?img=6" },
-        ],
+        actors: ["Karl Urban", "Jack Quaid"],
     },
 
     {
@@ -78,10 +60,7 @@ export const movies = [
         description:
             "A teenager discovers he has inherited superpowers from his father, but quickly learns that being a hero is far more complicated than it seems.",
         director: "Robert Kirkman",
-        actors: [
-            { name: "Steven Yeun", image: "https://i.pravatar.cc/150?img=7" },
-            { name: "J.K. Simmons", image: "https://i.pravatar.cc/150?img=8" },
-        ],
+        actors: ["Steven Yeun", "J.K. Simmons"],
     },
 
     {
@@ -97,10 +76,7 @@ export const movies = [
         description:
             "A road rage incident spirals into a chaotic feud between two strangers, revealing their deepest insecurities and emotional wounds.",
         director: "Lee Sung Jin",
-        actors: [
-            { name: "Steven Yeun", image: "https://i.pravatar.cc/150?img=9" },
-            { name: "Ali Wong", image: "https://i.pravatar.cc/150?img=10" },
-        ],
+        actors: ["Steven Yeun", "Ali Wong"],
     },
 
     {
@@ -116,13 +92,7 @@ export const movies = [
         description:
             "A group of teenagers navigate love, identity, trauma, and addiction in a hyper-connected world full of pressure and chaos.",
         director: "Sam Levinson",
-        actors: [
-            { name: "Zendaya", image: "https://i.pravatar.cc/150?img=11" },
-            {
-                name: "Hunter Schafer",
-                image: "https://i.pravatar.cc/150?img=12",
-            },
-        ],
+        actors: ["Zendaya", "Hunter Schafer"],
     },
 
     {
@@ -138,13 +108,7 @@ export const movies = [
         description:
             "A lone astronaut wakes up on a spaceship with no memory, only to discover he must save Earth from an extinction-level threat.",
         director: "Phil Lord & Chris Miller",
-        actors: [
-            { name: "Ryan Gosling", image: "https://i.pravatar.cc/150?img=13" },
-            {
-                name: "Sandra Hüller",
-                image: "https://i.pravatar.cc/150?img=14",
-            },
-        ],
+        actors: ["Ryan Gosling", "Sandra Hüller"],
     },
 
     {
@@ -160,16 +124,7 @@ export const movies = [
         description:
             "Residents of a mysterious town struggle to survive as terrifying creatures emerge at night and escape seems impossible.",
         director: "John Griffin",
-        actors: [
-            {
-                name: "Harold Perrineau",
-                image: "https://i.pravatar.cc/150?img=15",
-            },
-            {
-                name: "Catalina Sandino",
-                image: "https://i.pravatar.cc/150?img=16",
-            },
-        ],
+        actors: ["Harold Perrineau", "Catalina Sandino"],
     },
 
     {
@@ -185,13 +140,7 @@ export const movies = [
         description:
             "Inside a busy hospital, doctors and nurses deal with emotional pressure, life-or-death decisions, and their own personal struggles.",
         director: "R. Scott Gemmill",
-        actors: [
-            { name: "Noah Wyle", image: "https://i.pravatar.cc/150?img=17" },
-            {
-                name: "Tracy Ifeachor",
-                image: "https://i.pravatar.cc/150?img=18",
-            },
-        ],
+        actors: ["Noah Wyle", "Tracy Ifeachor"],
     },
 
     {
@@ -207,12 +156,6 @@ export const movies = [
         description:
             "A woman trapped in a restrictive cult begins a dangerous journey toward freedom after meeting a mysterious outsider.",
         director: "Unknown",
-        actors: [
-            { name: "Emma Green", image: "https://i.pravatar.cc/150?img=19" },
-            {
-                name: "Daniel Brooks",
-                image: "https://i.pravatar.cc/150?img=20",
-            },
-        ],
+        actors: ["Emma Green", "Daniel Brooks"],
     },
 ];

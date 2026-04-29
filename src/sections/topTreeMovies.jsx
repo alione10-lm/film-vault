@@ -12,13 +12,13 @@ const TopTreeMovies = () => {
 
     return (
         <section className="h-screen w-full p-10 mt-10">
-            <div className="flex w-full items-center gap-5">
-                <h1 className="text-3xl flex items-center   gap-2 font-bold">
+            <div className="flex w-full flex-col items-start gap-1">
+                <h1 className="text-2xl flex items-center   gap-2 font-bold">
                     <Gem className="text-primary" />
                     Top 3 Movies
                 </h1>
 
-                <div className="w-[50%] bg-primary/20 h-0.5"></div>
+                <div className="w-full bg-primary/20 h-[0.5px]"></div>
             </div>
 
             <div className="w-full  grid grid-cols-3 gap-3 mt-10">
