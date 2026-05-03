@@ -2,7 +2,18 @@ import { VideoIcon } from "lucide-react";
 import Button from "./button";
 import Tag from "./tag";
 
-export default function MovieDetails({ movie, setMovies, setOpen }) {
+import Modal from "./modal";
+import UpdateMovieForm from "./updateMovieFrom";
+export default function MovieDetails({
+    movie,
+    setMovies,
+    setOpen,
+    setShowModal,
+    showModal,
+
+    openUpdateModal,
+    selectedMovie,
+}) {
     function handleDelete(id) {
         const confirmDelete = window.confirm(
             "Are you sure you want to delete this movie?",
@@ -14,6 +25,8 @@ export default function MovieDetails({ movie, setMovies, setOpen }) {
 
         setOpen(false);
     }
+
+    console.log(selectedMovie);
 
     return (
         <div className="space-y-4">
@@ -68,7 +81,23 @@ export default function MovieDetails({ movie, setMovies, setOpen }) {
 
             <p>actions :</p>
             <div className="flex gap-2 mt-4">
-                <Button className="flex-1">Edit</Button>
+                <Button
+                    className="flex-1"
+                    onClick={() => openUpdateModal(movie)}
+                >
+                    Edit
+                </Button>
+
+                {showModal && (
+                    <Modal
+                        setShowModal={setShowModal}
+                        setMovies={setMovies}
+                        showModal={showModal}
+                        initialData={selectedMovie}
+                    >
+                        <UpdateMovieForm />
+                    </Modal>
+                )}
 
                 <Button
                     onClick={() => handleDelete(movie.id)}

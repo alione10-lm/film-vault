@@ -5,7 +5,7 @@ import Filter from "../components/filter";
 import Drawer from "../components/drawer";
 import MovieDetails from "../components/movieDetails";
 
-const AllFilms = ({ movies, setMovies, setShowModal }) => {
+const AllFilms = ({ movies, setMovies, setShowModal, openUpdateModal }) => {
     const [open, setOpen] = useState(false);
     const [selectedMovie, setSelectedMovie] = useState(null);
     const [selectedGenre, setSelectedGenre] = useState("");
@@ -71,9 +71,11 @@ const AllFilms = ({ movies, setMovies, setShowModal }) => {
                     title="details"
                 >
                     <MovieDetails
+                        openUpdateModal={openUpdateModal}
                         setOpen={setOpen}
                         movie={selectedMovie}
                         setMovies={setMovies}
+                        setShowModal={setShowModal}
                     />
                 </Drawer>
             )}

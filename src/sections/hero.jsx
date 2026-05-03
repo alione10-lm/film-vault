@@ -3,7 +3,14 @@ import Button from "../components/button";
 import Drawer from "../components/drawer";
 import MovieDetails from "../components/movieDetails";
 
-const Hero = ({ movie, setMovies }) => {
+const Hero = ({
+    movie,
+    setMovies,
+    setShowModal,
+    showModal,
+    openUpdateModal,
+    selectedMovie,
+}) => {
     const [open, setOpen] = useState(false);
 
     return (
@@ -41,9 +48,13 @@ const Hero = ({ movie, setMovies }) => {
                             title="details"
                         >
                             <MovieDetails
+                                showModal={showModal}
+                                setShowModal={setShowModal}
                                 movie={movie}
                                 setOpen={setOpen}
                                 setMovies={setMovies}
+                                openUpdateModal={openUpdateModal}
+                                selectedMovie={selectedMovie}
                             />
                         </Drawer>
                     </div>

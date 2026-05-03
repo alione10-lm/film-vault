@@ -5,7 +5,12 @@ import Drawer from "../components/drawer";
 import { useState } from "react";
 import MovieDetails from "../components/movieDetails";
 
-const TopTreeMovies = ({ movies, setMovies, setShowModal }) => {
+const TopTreeMovies = ({
+    movies,
+    setMovies,
+    setShowModal,
+    openUpdateModal,
+}) => {
     const [open, setOpen] = useState(false);
     const [selectedMovie, setSelectedMovie] = useState(null);
 
@@ -49,6 +54,7 @@ const TopTreeMovies = ({ movies, setMovies, setShowModal }) => {
                     title="details"
                 >
                     <MovieDetails
+                        openUpdateModal={openUpdateModal}
                         movie={selectedMovie}
                         setMovies={setMovies}
                         setOpen={setOpen}
