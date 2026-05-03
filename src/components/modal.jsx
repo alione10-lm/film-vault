@@ -8,9 +8,6 @@ const Modal = ({ setMovies, setShowModal, initialData, children }) => {
             setShowModal(false);
         }
     };
-    console.log("sdjfhkjh");
-
-    console.log(initialData);
 
     return (
         <div

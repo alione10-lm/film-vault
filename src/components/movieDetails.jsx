@@ -1,32 +1,31 @@
+import { useState } from "react";
 import { VideoIcon } from "lucide-react";
 import Button from "./button";
 import Tag from "./tag";
-
 import Modal from "./modal";
 import UpdateMovieForm from "./updateMovieFrom";
+import Trailer from "./trailerModal";
+
 export default function MovieDetails({
     movie,
     setMovies,
     setOpen,
     setShowModal,
     showModal,
-
     openUpdateModal,
     selectedMovie,
+    closeDrawer,
 }) {
+    const [showTrailer, setShowTrailer] = useState(false);
+
     function handleDelete(id) {
         const confirmDelete = window.confirm(
             "Are you sure you want to delete this movie?",
         );
-
         if (!confirmDelete) return;
-
-        setMovies((prev) => prev.filter((movie) => movie.id !== id));
-
+        setMovies((prev) => prev.filter((m) => m.id !== id));
         setOpen(false);
     }
-
-    console.log(selectedMovie);
 
     return (
         <div className="space-y-4">
@@ -36,9 +35,9 @@ export default function MovieDetails({
 
             <div className="text-sm flex gap-2 text-gray-500">
                 {movie.date} •{" "}
-                <div className="flex flex-wrap ">
+                <div className="flex flex-wrap">
                     {movie.genres.map((genre, index) => (
-                        <Tag key={index}> {genre} </Tag>
+                        <Tag key={index}>{genre}</Tag>
                     ))}
                 </div>
             </div>
@@ -55,7 +54,6 @@ export default function MovieDetails({
             {movie.actors && (
                 <div>
                     <p className="font-semibold text-sm mb-2">Actors:</p>
-
                     <div className="flex flex-wrap gap-3">
                         {movie.actors.map((actor, i) => (
                             <div
@@ -68,22 +66,29 @@ export default function MovieDetails({
                     </div>
                 </div>
             )}
+
             <div className="flex items-center gap-2">
                 <span className="font-semibold">
                     ⭐ {movie.rate.aggregaterate}
                 </span>
             </div>
 
-            <Button variant={"ghost"} className="w-full">
-                watch trailer
+            <Button
+                variant="ghost"
+                className="w-full"
+                onClick={() => setShowTrailer(true)}
+            >
+                Watch Trailer
                 <VideoIcon size={14} />
             </Button>
 
-            <p>actions :</p>
             <div className="flex gap-2 mt-4">
                 <Button
                     className="flex-1"
-                    onClick={() => openUpdateModal(movie)}
+                    onClick={() => {
+                        closeDrawer();
+                        openUpdateModal();
+                    }}
                 >
                     Edit
                 </Button>
@@ -92,7 +97,6 @@ export default function MovieDetails({
                     <Modal
                         setShowModal={setShowModal}
                         setMovies={setMovies}
-                        showModal={showModal}
                         initialData={selectedMovie}
                     >
                         <UpdateMovieForm />
@@ -100,13 +104,23 @@ export default function MovieDetails({
                 )}
 
                 <Button
-                    onClick={() => handleDelete(movie.id)}
+                    onClick={() => {
+                        handleDelete(movie.id);
+                        closeDrawer();
+                    }}
                     variant="destructive"
                     className="flex-1"
                 >
                     Delete
                 </Button>
             </div>
+
+            {showTrailer && (
+                <Trailer
+                    url={movie.trailerUrl}
+                    setShowTrailer={setShowTrailer}
+                />
+            )}
         </div>
     );
 }

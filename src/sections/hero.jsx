@@ -48,6 +48,7 @@ const Hero = ({
                             title="details"
                         >
                             <MovieDetails
+                                closeDrawer={() => setOpen(false)}
                                 showModal={showModal}
                                 setShowModal={setShowModal}
                                 movie={movie}

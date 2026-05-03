@@ -3,6 +3,7 @@ export const movies = [
         id: "tt11378946",
         type: "movie",
         title: "Michael",
+        trailerUrl: "https://youtu.be/NmzuHjWmXOc?si=XmRfP2VfPkBmSQ1I",
         image: {
             url: "https://m.media-amazon.com/images/M/MV5BNzllNmRlN2EtMDQyOC00ODJjLTg4OWQtZDNmNGU3YzlkNjc1XkEyXkFqcGc@._V1_.jpg",
         },
@@ -14,11 +15,11 @@ export const movies = [
         director: "Antoine Fuqua",
         actors: ["Jaafar Jackson", "Colman Domingo"],
     },
-
     {
         id: "tt16431404",
         type: "movie",
         title: "Apex",
+        trailerUrl: "https://youtu.be/NmzuHjWmXOc?si=XmRfP2VfPkBmSQ1I",
         image: {
             url: "https://m.media-amazon.com/images/M/MV5BNjUzODE2ZWYtMDdiMS00ZTA0LWI4MzEtNDkyODNiNmIwMWY1XkEyXkFqcGc@._V1_.jpg",
         },
@@ -30,11 +31,11 @@ export const movies = [
         director: "Edward Drake",
         actors: ["Bruce Willis", "Neal McDonough"],
     },
-
     {
         id: "tt1190634",
         type: "tvSeries",
         title: "The Boys",
+        trailerUrl: "https://youtu.be/NmzuHjWmXOc?si=XmRfP2VfPkBmSQ1I",
         image: {
             url: "https://m.media-amazon.com/images/M/MV5BZjU4OWNiYzQtMzc1NS00NjZlLTgyYTctZWY4ZmEzMTkxYjA4XkEyXkFqcGc@._V1_.jpg",
         },
@@ -46,11 +47,11 @@ export const movies = [
         director: "Eric Kripke",
         actors: ["Karl Urban", "Jack Quaid"],
     },
-
     {
         id: "tt6741278",
         type: "tvSeries",
         title: "Invincible",
+        trailerUrl: "https://youtu.be/NmzuHjWmXOc?si=XmRfP2VfPkBmSQ1I",
         image: {
             url: "https://m.media-amazon.com/images/M/MV5BZGM5MmM2ZDAtMzBjNS00NjMxLWE4ZTMtNzFjMWMxYzU2ZThjXkEyXkFqcGc@._V1_.jpg",
         },
@@ -62,11 +63,11 @@ export const movies = [
         director: "Robert Kirkman",
         actors: ["Steven Yeun", "J.K. Simmons"],
     },
-
     {
         id: "tt14403178",
         type: "tvSeries",
         title: "Beef",
+        trailerUrl: "https://youtu.be/NmzuHjWmXOc?si=XmRfP2VfPkBmSQ1I",
         image: {
             url: "https://m.media-amazon.com/images/M/MV5BMGNlNDkyYzItNTg5Yy00NGFiLWJhYTctODE5NjNkYjk4ZDUwXkEyXkFqcGc@._V1_.jpg",
         },
@@ -78,11 +79,11 @@ export const movies = [
         director: "Lee Sung Jin",
         actors: ["Steven Yeun", "Ali Wong"],
     },
-
     {
         id: "tt8772296",
         type: "tvSeries",
         title: "Euphoria",
+        trailerUrl: "https://youtu.be/NmzuHjWmXOc?si=XmRfP2VfPkBmSQ1I",
         image: {
             url: "https://m.media-amazon.com/images/M/MV5BYzg5MTVmNjgtMGQ3Zi00YThlLWFjMzgtYzc2NGUyMzE2MWQ1XkEyXkFqcGc@._V1_.jpg",
         },
@@ -94,11 +95,11 @@ export const movies = [
         director: "Sam Levinson",
         actors: ["Zendaya", "Hunter Schafer"],
     },
-
     {
         id: "tt12042730",
         type: "movie",
         title: "Project Hail Mary",
+        trailerUrl: "https://youtu.be/NmzuHjWmXOc?si=XmRfP2VfPkBmSQ1I",
         image: {
             url: "https://m.media-amazon.com/images/M/MV5BNTkwNzJiYTctNzI3NC00NjE1LTlhYjktY2Q5MTdmMWFmNzcxXkEyXkFqcGc@._V1_.jpg",
         },
@@ -110,11 +111,11 @@ export const movies = [
         director: "Phil Lord & Chris Miller",
         actors: ["Ryan Gosling", "Sandra Hüller"],
     },
-
     {
         id: "tt9813792",
         type: "tvSeries",
         title: "From",
+        trailerUrl: "https://youtu.be/NmzuHjWmXOc?si=XmRfP2VfPkBmSQ1I",
         image: {
             url: "https://m.media-amazon.com/images/M/MV5BNDAwNDljNWEtNWE1Zi00YjFlLWEzM2UtY2E3ZTM1MTcxMTcyXkEyXkFqcGc@._V1_.jpg",
         },
@@ -126,11 +127,11 @@ export const movies = [
         director: "John Griffin",
         actors: ["Harold Perrineau", "Catalina Sandino"],
     },
-
     {
         id: "tt31938062",
         type: "tvSeries",
         title: "The Pitt",
+        trailerUrl: "https://youtu.be/NmzuHjWmXOc?si=XmRfP2VfPkBmSQ1I",
         image: {
             url: "https://m.media-amazon.com/images/M/MV5BMThjMjYxM2YtM2IzZC00NDdmLThiNDYtNzEyNzA0YTRmYTk3XkEyXkFqcGc@._V1_.jpg",
         },
@@ -142,11 +143,11 @@ export const movies = [
         director: "R. Scott Gemmill",
         actors: ["Noah Wyle", "Tracy Ifeachor"],
     },
-
     {
         id: "tt31631142",
         type: "tvSeries",
         title: "Unchosen",
+        trailerUrl: "https://youtu.be/NmzuHjWmXOc?si=XmRfP2VfPkBmSQ1I",
         image: {
             url: "https://m.media-amazon.com/images/M/MV5BZTgyMjNhNjYtYjEwYy00NmFjLTg2MTQtZDNkYjZhYzMwODA0XkEyXkFqcGc@._V1_.jpg",
         },

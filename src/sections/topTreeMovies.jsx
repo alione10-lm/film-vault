@@ -54,6 +54,7 @@ const TopTreeMovies = ({
                     title="details"
                 >
                     <MovieDetails
+                        closeDrawer={() => setOpen(false)}
                         openUpdateModal={openUpdateModal}
                         movie={selectedMovie}
                         setMovies={setMovies}

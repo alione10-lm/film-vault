@@ -71,6 +71,7 @@ const AllFilms = ({ movies, setMovies, setShowModal, openUpdateModal }) => {
                     title="details"
                 >
                     <MovieDetails
+                        closeDrawer={() => setOpen(false)}
                         openUpdateModal={openUpdateModal}
                         setOpen={setOpen}
                         movie={selectedMovie}
