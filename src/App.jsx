@@ -53,6 +53,7 @@ const App = () => {
                 setMovies={saveMovies}
                 openUpdateModal={openUpdateModal}
                 movie={getTopMovie(movies)[0]}
+                selectedMovie={selectedMovie}
             />
             <TopTreeMovies
                 movies={movies}

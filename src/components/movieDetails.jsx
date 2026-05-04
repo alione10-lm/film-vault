@@ -87,7 +87,7 @@ export default function MovieDetails({
                     className="flex-1"
                     onClick={() => {
                         closeDrawer();
-                        openUpdateModal();
+                        openUpdateModal(movie);
                     }}
                 >
                     Edit

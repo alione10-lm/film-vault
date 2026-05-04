@@ -3,6 +3,8 @@ import React, { useRef } from "react";
 const Modal = ({ setMovies, setShowModal, initialData, children }) => {
     const formRef = useRef(null);
 
+    console.log(initialData);
+
     const handleOutsideClick = (e) => {
         if (formRef.current && !formRef.current.contains(e.target)) {
             setShowModal(false);
